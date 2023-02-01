@@ -5,72 +5,64 @@ import java.util.List;
 
 public class Student {
 
-    public List<Character> GradeList = Arrays.asList( 'A', 'B', 'C', 'D', 'E', 'F');
-    public List<Integer> Grouplist = Arrays.asList(1,2,3,4,5);
     public String name;
-    public char grade;
-    public int group;
+    public Grade grade;
+    public Group group;
     private String secretNickName;
 
-    public Student(String name, char grade, int group) {
+    public Student(String name, Grade grade, Group group) {
         this.name = name;
         this.grade = grade;
         this.group = group;
     }
 
-    public void setGrade(char grade) {
-        this.grade = grade;
-    }
-
-    public void setGroup(int group) {
-        this.group = group;
-    }
 
     public void upgrade(){
         switch (grade) {
-            case 'A':
+            case A:
+                // Nothing changed
                 break;
-            case 'B':
-                grade = 'A';
+            case B:
+                grade = Grade.A;
                 break;
-            case 'C':
-                grade = 'B';
+            case C:
+                grade = Grade.B;
                 break;
-            case 'D':
-                grade = 'C';
+            case D:
+                grade = Grade.C;
                 break;
-            case 'E':
-                grade = 'D';
+            case E:
+                grade = Grade.D;
                 break;
-            case 'F':
-                grade = 'E';
+            case F:
+                grade = Grade.E;
         }
     }
 
     public void downgrade(){
         switch (grade) {
-            case 'A':
-                grade = 'B';
+            case A:
+                grade = Grade.B;
                 break;
-            case 'B':
-                grade = 'C';
+            case B:
+                grade = Grade.C;
                 break;
-            case 'C':
-                grade = 'D';
+            case C:
+                grade = Grade.D;
                 break;
-            case 'D':
-                grade = 'E';
+            case D:
+                grade = Grade.E;
                 break;
-            case 'E':
-                grade = 'F';
+            case E:
+                grade = Grade.F;
                 break;
-            case 'F':
+            case F:
                 //nothing changed
                 break;
         }
     }
 
     public String getDetail(){
-        return(String.format("Student %s, Grade %c, Group %d", name, grade, group));
+        return(String.format("Student %s, Grade %s, Group %d", name, grade, group.value()));
     }
 }
